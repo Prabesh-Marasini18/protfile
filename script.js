@@ -11,15 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
     const hireBtns = document.querySelectorAll('.hire-btn');
     const aboutBtn = document.querySelector('.about-btn');
     const socialIcons = document.querySelectorAll('.social-icon');
+    const themeToggle = document.querySelector('.theme-toggle');
+    
 
     // Professions for typewriter effect
     const professions = [
         'Full-Stack Developer',
-        'Frontend Engineer', 
-        'Backend Developer',
-        'UI/UX Enthusiast',
-        'Problem Solver',
-        'Tech Innovator'
+        'Flutter Developer',
+        'Laravel Developer',
+        'Data Analyst',
+        'ML Enthusiast',
+        
     ];
 
     // Typewriter Effect
@@ -398,39 +400,127 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             document.body.classList.add('loaded');
         }, 100);
+        // Lock scroll while preloader is visible
+        if (preloader) {
+            document.body.style.overflow = 'hidden';
+        }
+        // Initialize theme (light/dark)
+        initTheme();
         
         console.log('Portfolio website initialized successfully! 🚀');
+    }
+
+    // Theme handling
+    function applyTheme(theme) {
+        if (theme === 'light') {
+            document.documentElement.setAttribute('data-theme', 'light');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
+        try { localStorage.setItem('theme', theme); } catch (e) {}
+        updateThemeToggle();
+    }
+
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+        const next = current === 'light' ? 'dark' : 'light';
+        applyTheme(next);
+    }
+
+    function updateThemeToggle() {
+        if (!themeToggle) return;
+        const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        themeToggle.innerHTML = isLight ? '<i class="fas fa-moon"></i>' : '<i class="fas fa-sun"></i>';
+        themeToggle.setAttribute('aria-label', isLight ? 'Switch to dark theme' : 'Switch to light theme');
+    }
+
+    function initTheme() {
+        let saved;
+        try { saved = localStorage.getItem('theme'); } catch (e) { saved = null; }
+        if (saved === 'light' || saved === 'dark') {
+            applyTheme(saved);
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            applyTheme('light');
+        } else {
+            applyTheme('dark');
+        }
+        if (themeToggle) {
+            themeToggle.addEventListener('click', toggleTheme);
+            themeToggle.style.cursor = 'pointer';
+        }
     }
 
     // Contact form handling
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
+        contactForm.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            // Get form data
-            const formData = new FormData(this);
+            const form = this;
+            const submitBtn = form.querySelector('.submit-btn');
+            const formData = new FormData(form);
             const data = Object.fromEntries(formData);
 
-            // Simple validation
-            if (!data.name || !data.email || !data.subject || !data.message) {
-                showNotification('Please fill in all fields', 'error');
+            if (!data.name || !data.email || !data.message) {
+                showNotification('Please fill in name, email and message', 'error');
                 return;
             }
 
-            // Simulate form submission (replace with actual API call)
-            console.log('Form submitted:', data);
+            // disable button
+            if (submitBtn) {
+                submitBtn.disabled = true;
+                submitBtn.style.opacity = '0.6';
+            }
 
-            // Show success message
-            showNotification('Thank you for your message! I will get back to you soon.', 'success');
+            try {
+                const action = form.getAttribute('action');
+                const resp = await fetch(action, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json' },
+                    body: formData
+                });
 
-            // Reset form
-            this.reset();
+                if (resp.ok) {
+                    showNotification('Message sent — thank you!', 'success');
+                    form.reset();
+                } else {
+                    const json = await resp.json().catch(() => ({}));
+                    const msg = (json && json.error) ? json.error : 'Submission failed. Please try again.';
+                    showNotification(msg, 'error');
+                }
+            } catch (err) {
+                showNotification('Network error — please try again', 'error');
+            } finally {
+                if (submitBtn) {
+                    submitBtn.disabled = false;
+                    submitBtn.style.opacity = '';
+                }
+            }
         });
     }
 
     // Initialize the application
     init();
+
+    // Preloader hide logic and fallbacks
+    function hidePreloader() {
+        if (!preloader) return;
+        preloader.classList.add('hidden');
+        document.body.style.overflow = 'auto';
+        setTimeout(() => { preloader.remove(); }, 400);
+    }
+
+    // Hide when all resources loaded
+    window.addEventListener('load', () => {
+        setTimeout(hidePreloader, 500);
+    });
+
+    // Fallback: hide after max timeout to avoid infinite loading
+    setTimeout(() => {
+        if (preloader && !preloader.classList.contains('hidden')) {
+            hidePreloader();
+        }
+    }, 2500);
 
     // Add CSS for ripple effect and notifications
     const style = document.createElement('style');

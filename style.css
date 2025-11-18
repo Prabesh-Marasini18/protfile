@@ -23,10 +23,30 @@
     --glass-border: rgba(255, 255, 255, 0.1);
 }
 
+:root[data-theme="light"] {
+    --bg-primary: #f7fafc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #edf2f7;
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-muted: #6b7280;
+    --accent-primary: #0ea5e9;
+    --accent-secondary: #0284c7;
+    --accent-gradient: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+    --accent-gradient-hover: linear-gradient(135deg, #0891b2 0%, #0369a1 100%);
+    --border-accent: rgba(2, 132, 199, 0.15);
+    --glass-bg: rgba(255, 255, 255, 0.6);
+    --glass-border: rgba(17, 24, 39, 0.08);
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    overflow-x: hidden;
 }
 
 body {
@@ -37,6 +57,21 @@ body {
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.skip-link {
+    position: fixed;
+    left: -999px;
+    top: 10px;
+    background: var(--accent-gradient);
+    color: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    z-index: 1001;
+}
+
+.skip-link:focus {
+    left: 10px;
 }
 
 .container {
@@ -152,17 +187,42 @@ header.scrolled {
     align-items: center;
 }
 
+.theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    margin-right: 0.75rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    background: var(--glass-bg);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+}
+
+.theme-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card);
+}
+
 .cta-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
     background: var(--accent-gradient);
     color: var(--bg-primary);
     text-decoration: none;
-    padding: 0.8rem 1.8rem;
+    padding: 0.55rem 0.9rem;
     border-radius: var(--border-radius-pill);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     transition: var(--transition-smooth);
     position: relative;
     overflow: hidden;
+    white-space: nowrap;
+    min-width: 0;
 }
 
 .cta-btn::before {
@@ -260,13 +320,14 @@ header.scrolled {
     content: '';
     position: absolute;
     top: 20%;
-    right: -10%;
-    width: 500px;
-    height: 500px;
+    right: 0;
+    width: 400px;
+    height: 400px;
     background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     filter: blur(100px);
-    animation: float 6s ease-in-out infinite;
+    /* disable horizontal motion to avoid viewport shifting */
+    animation: none;
 }
 
 .home-content {
@@ -422,6 +483,11 @@ header.scrolled {
     color: var(--accent-primary);
 }
 
+.project-filter .active {
+    border-color: var(--accent-primary);
+    color: var(--accent-primary);
+}
+
 .social-links {
     display: flex;
     gap: 1rem;
@@ -471,6 +537,126 @@ header.scrolled {
     color: white;
 }
 
+.footer {
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--glass-border);
+    padding: 2.5rem 0;
+    position: relative;
+}
+
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--accent-gradient);
+    opacity: 0.2;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+}
+
+.footer-copy {
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.footer-links {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    transition: var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--text-primary);
+    background: var(--glass-bg);
+    border-color: var(--glass-border);
+}
+
+.footer-social {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.footer-social .social-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+    border: 1px solid var(--glass-border);
+    background: var(--glass-bg);
+}
+
+/* Back-to-top removed per request */
+
+.preloader {
+    position: fixed;
+    inset: 0;
+    background: var(--bg-primary);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.preloader-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.preloader-brand {
+    font-weight: 800;
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.spinner {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 3px solid var(--glass-border);
+    border-top-color: var(--accent-primary);
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 /* Enhanced Home Image */
 .home-image {
     position: relative;
@@ -483,6 +669,11 @@ header.scrolled {
     position: relative;
     opacity: 0;
     animation: fadeInScale 1s ease forwards 0.5s;
+}
+
+/* allow floating cards to be visible outside the image bounds */
+.image-container {
+    overflow: visible;
 }
 
 .profile-image {
@@ -513,8 +704,10 @@ header.scrolled {
     color: var(--text-primary);
     font-weight: 600;
     font-size: 0.9rem;
-    animation: floatCard 4s ease-in-out infinite;
     box-shadow: var(--shadow-card);
+    will-change: transform;
+    /* subtle transform-only float animation (uses CSS variable for horizontal offset)") */
+    animation: floatCard 4s ease-in-out infinite;
 }
 
 .floating-card i {
@@ -524,20 +717,32 @@ header.scrolled {
 
 .card-1 {
     top: 10%;
-    right: -20%;
-    animation-delay: 0s;
+    right: 0;
+    --tx: translateX(110%);
+    transform: var(--tx);
 }
 
 .card-2 {
     bottom: 30%;
-    left: -25%;
-    animation-delay: 1.5s;
+    left: 0;
+    --tx: translateX(-110%);
+    transform: var(--tx);
 }
 
 .card-3 {
     bottom: 10%;
-    right: -15%;
-    animation-delay: 3s;
+    right: 0;
+    --tx: translateX(110%);
+    transform: var(--tx);
+}
+
+@keyframes floatCard {
+    0%, 100% {
+        transform: var(--tx) translateY(0);
+    }
+    50% {
+        transform: var(--tx) translateY(-12px);
+    }
 }
 
 /* Enhanced About Section */
@@ -741,10 +946,10 @@ header.scrolled {
 
 @keyframes floatCard {
     0%, 100% {
-        transform: translateY(0px);
+        transform: var(--shiftX) translateY(0);
     }
     50% {
-        transform: translateY(-10px);
+        transform: var(--shiftX) translateY(-10px);
     }
 }
 
@@ -770,6 +975,18 @@ header.scrolled {
     .home-content,
     .about-content {
         gap: 4rem;
+    }
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem;
+    }
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.75rem;
+    }
+    #experience .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
     }
 }
 
@@ -798,13 +1015,15 @@ header.scrolled {
         padding: 2rem;
         border-radius: 0;
         border: none;
-        transform: translateX(-100%);
-        transition: var(--transition-smooth);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s ease;
         z-index: 999;
     }
     
     .nav-menu.active {
-        transform: translateX(0);
+        opacity: 1;
+        pointer-events: auto;
     }
     
     .nav-link {
@@ -889,6 +1108,10 @@ header.scrolled {
         font-size: 1rem;
         max-width: 100%;
     }
+    .skills-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+    }
     
     .about-highlights {
         gap: 1rem;
@@ -900,6 +1123,24 @@ header.scrolled {
     
     .highlight:hover {
         transform: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        text-align: center;
+    }
+    .footer-brand {
+        align-items: center;
+        font-size: 1.1rem;
+    }
+    .footer-links {
+        justify-content: center;
+    }
+    .footer-social {
+        justify-content: center;
     }
 }
 
@@ -950,6 +1191,18 @@ header.scrolled {
     }
 }
 
+/* Prevent images and media from causing horizontal overflow */
+img, picture, video, svg, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Ensure sections don't create horizontal overflow */
+.section {
+    overflow-x: hidden;
+}
+
 @media (max-width: 320px) {
     .nav-brand {
         font-size: 1.5rem;
@@ -994,15 +1247,15 @@ header.scrolled {
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
+    grid-template-columns: repeat(3, minmax(260px, 1fr));
+    gap: 1.5rem;
 }
 
 .skill-category {
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
     border-radius: var(--border-radius);
-    padding: 2rem;
+    padding: 1.5rem;
     backdrop-filter: blur(10px);
     transition: var(--transition-smooth);
 }
@@ -1023,13 +1276,13 @@ header.scrolled {
 .skill-items {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1rem;
 }
 
 .skill-item {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .skill-item i {
@@ -1064,19 +1317,20 @@ header.scrolled {
 .services {
     background: var(--bg-secondary);
     position: relative;
+    overflow: hidden;
 }
 
 .services::before {
     content: '';
     position: absolute;
     top: 20%;
-    right: -10%;
+    right: 0;
     width: 400px;
     height: 400px;
     background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     filter: blur(100px);
-    animation: float 8s ease-in-out infinite;
+    animation: none;
 }
 
 .services-content {
@@ -1088,6 +1342,16 @@ header.scrolled {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
+}
+
+#education .services-grid {
+    grid-template-columns: repeat(2, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+#experience .services-grid {
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    gap: 1.75rem;
 }
 
 .service-card {
@@ -1170,19 +1434,20 @@ header.scrolled {
 .projects {
     background: var(--bg-primary);
     position: relative;
+    overflow: hidden;
 }
 
 .projects::before {
     content: '';
     position: absolute;
     bottom: 20%;
-    left: -10%;
+    left: 0;
     width: 500px;
     height: 500px;
     background: radial-gradient(circle, rgba(0, 212, 255, 0.05) 0%, transparent 70%);
     border-radius: 50%;
     filter: blur(100px);
-    animation: float 10s ease-in-out infinite reverse;
+    animation: none;
 }
 
 .projects-content {
@@ -1192,8 +1457,8 @@ header.scrolled {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2.5rem;
+    grid-template-columns: repeat(3, minmax(280px, 1fr));
+    gap: 2rem;
 }
 
 .project-card {
@@ -1388,6 +1653,102 @@ header.scrolled {
     border-radius: var(--border-radius);
     padding: 2.5rem;
     backdrop-filter: blur(10px);
+}
+
+.contact-form {
+    /* make the form fluid but constrained on wide screens */
+    width: 100%;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.03));
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+    padding: 2rem;
+}
+
+.contact-form h3 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+.contact-form .form-group {
+    position: relative;
+    margin-bottom: 1.1rem;
+}
+
+.contact-form .form-group input,
+.contact-form .form-group textarea {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 12px;
+    border: 1px solid rgba(255,255,255,0.06);
+    background: rgba(255,255,255,0.015);
+    color: var(--text-primary);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.contact-form .form-group textarea {
+    min-height: 140px;
+    resize: vertical;
+}
+
+.contact-form .form-group label {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+    pointer-events: none;
+    transition: transform 0.16s ease, top 0.16s ease, font-size 0.16s ease, color 0.16s ease, background 0.16s ease;
+    padding: 0 6px;
+    background: transparent;
+}
+
+.contact-form .form-group input:focus,
+.contact-form .form-group textarea:focus {
+    border-color: var(--accent-primary);
+    box-shadow: 0 8px 20px rgba(0,212,255,0.06);
+}
+
+.contact-form .form-group input:focus + label,
+.contact-form .form-group input:not(:placeholder-shown) + label,
+.contact-form .form-group textarea:focus + label,
+.contact-form .form-group textarea:not(:placeholder-shown) + label {
+    top: -8px;
+    transform: translateY(0);
+    font-size: 0.8rem;
+    left: 12px;
+    color: var(--accent-primary);
+    background: var(--bg-primary);
+}
+
+.contact-form .submit-btn {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 999px;
+    background: var(--accent-gradient);
+    color: var(--bg-primary);
+    border: none;
+    font-weight: 700;
+    box-shadow: 0 8px 30px rgba(0,212,255,0.12);
+    transition: transform 0.16s ease, box-shadow 0.16s ease, opacity 0.12s ease;
+}
+
+.contact-form .submit-btn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 40px rgba(0,212,255,0.18);
+}
+
+@media (max-width: 768px) {
+    .contact-form { padding: 1.25rem; max-width: 100%; }
+    .contact-form .form-group input,
+    .contact-form .form-group textarea { padding: 12px; }
+    .contact-form .submit-btn { padding: 12px; }
 }
 
 .form-group {

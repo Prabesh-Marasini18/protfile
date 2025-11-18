@@ -4,23 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prabesh Marasini-Portfolio</title>
+    <meta name="description" content="Portfolio of Prabesh Marasini — Full-Stack Developer specializing in Flutter, Laravel/PHP, Python, TensorFlow, REST APIs, and Data Analytics.">
+    <meta name="keywords" content="Prabesh Marasini, Full-Stack Developer, Flutter, Laravel, PHP, Python, TensorFlow, Nepal">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <meta property="og:title" content="Prabesh Marasini — Portfolio">
+    <meta property="og:description" content="Full-Stack Developer building mobile apps, web platforms, and ML-powered solutions.">
+    <meta property="og:image" content="images/profile.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="images/pf.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Prabesh Marasini",
+    "jobTitle": "Full-Stack Developer",
+    "email": "mailto:prabeshmarasini18@gmail.com",
+    "url": "",
+    "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Pokhara",
+    "addressCountry": "Nepal"
+    },
+    "sameAs": [
+    "https://www.linkedin.com/in/prabesh-marasini-bb812b271/",
+    "https://github.com/Prabesh-Marasini18"
+    ]
+    }
+    </script>
 </head>
 <body>
+    <a href="#home" class="skip-link">Skip to content</a>
+    <div id="preloader" class="preloader">
+        <div class="preloader-content">
+            <div class="preloader-brand">Prabesh<span class="brand-dot">.</span></div>
+            <div class="spinner"></div>
+        </div>
+    </div>
     <header>
-        <nav class="navbar">
+        <nav class="navbar" role="navigation" aria-label="Primary">
             <div class="nav-brand">Prabesh<span class="brand-dot">.</span></div>
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link active">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#experience" class="nav-link">Experience</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#service" class="nav-link">Services</a></li>
                 <li><a href="#project" class="nav-link">Projects</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="nav-cta">
+                <button class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
                 <a href="#contact" class="cta-btn">Let's Talk</a>
             </div>
             <div class="hamburger">
@@ -38,15 +81,12 @@
                     <div class="home-text">
                         <div class="greeting">👋 Hello there!</div>
                         <h1 class="hero-title">I'm <span class="accent">Prabesh Marasini</span></h1>
-                        <h2 class="hero-subtitle" id="rotating-profession">Web Developer</h2>
-                        <p class="hero-desc">I'm Prabesh Marasini, a passionate Software Developer who enjoys understanding how systems work —
-                        from low-level logic circuits to high-level applications.
-                        With solid experience in Java, C, and modern web technologies,
-                        I aim to create efficient, reliable, and scalable software that combines logic and creativity.</p>
+                        <h2 class="hero-subtitle" id="rotating-profession">Full-Stack Developer</h2>
+                        <p class="hero-desc">I'm Prabesh Marasini, a Software Developer based in Pokhara, Nepal. I build cross-platform apps with Flutter, modern web apps with Laravel and PHP, and data-driven solutions using Python. I enjoy ML projects with TensorFlow and focus on clean, scalable, and user-friendly experiences.</p>
                         
                         <div class="hero-stats">
                             <div class="stat">
-                                <span class="stat-number">8+</span>
+                                <span class="stat-number">12+</span>
                                 <span class="stat-label">Projects Completed</span>
                             </div>
                             <div class="stat">
@@ -54,8 +94,8 @@
                                 <span class="stat-label">Years Experience</span>
                             </div>
                             <div class="stat">
-                                <span class="stat-number">20+</span>
-                                <span class="stat-label">Happy Clients</span>
+                                <span class="stat-number">3+</span>
+                                <span class="stat-label">Hackathons</span>
                             </div>
                         </div>
 
@@ -86,7 +126,7 @@
                     
                     <div class="home-image">
                         <div class="image-container">
-                            <img src="images/profile.jpg" alt="Profile photo of Asep" class="profile-image">
+                            <img src="images/profile.jpg" alt="Profile photo of Prabesh" class="profile-image" width="400" height="500" decoding="async">
                             <div class="floating-card card-1">
                                 <i class="fas fa-code"></i>
                                 <span>Clean Code</span>
@@ -110,7 +150,7 @@
                 <div class="about-content">
                     <div class="about-image">
                         <div class="image-wrapper">
-                            <img src="images/about.jpg" alt="About Asep" class="about-img">
+                            <img src="images/aboutme.jpg" alt="About Prabesh" class="about-img" width="500" height="600" loading="lazy" decoding="async">
                             <div class="experience-badge">
                                 <span class="badge-number">1+</span>
                                 <span class="badge-text">Years<br>Experience</span>
@@ -122,11 +162,11 @@
                         <h2 class="section-title">About Me</h2>
                         <div class="about-description">
                             <p>
-                                I'm a passionate web developer based in Nepal with a strong foundation in both frontend and backend technologies. Over the past 2 years, I’ve been honing my skills, constantly learning, and adapting to the latest trends in web development.
+                                I'm a developer focused on building useful products across mobile, web, and data. I work with Flutter for mobile apps, Laravel and PHP for web platforms, and Python for analytics.
 
-                                I specialize in building responsive, user-friendly websites and web applications using modern frameworks and libraries. My approach blends technical expertise with creative problem-solving, delivering solutions that are not only visually appealing but also highly performant and scalable.
+                                I have experience in RESTful APIs, responsive UI/UX, and databases like MySQL and PostgreSQL. I also enjoy applied Machine Learning, especially TensorFlow and CNNs for image classification.
 
-                                Beyond coding, I enjoy exploring emerging technologies, contributing to open-source projects, and sharing knowledge with the developer community through my blog and social media. I strive to create impactful digital experiences that make a difference.
+                                I value clean code, performance, and practical problem-solving — aiming to deliver reliable, scalable solutions that feel great to use.
                             </p>
                         </div>
 
@@ -135,7 +175,7 @@
                                 <i class="fas fa-graduation-cap"></i>
                                 <div>
                                     <h4>Education</h4>
-                                    <p>Bachelor in Information Technology</p>
+                                    <p>Bachelor in Information Technology (2023–Present)</p>
                                 </div>
                             </div>
                             <div class="highlight">
@@ -149,7 +189,7 @@
                                 <i class="fas fa-briefcase"></i>
                                 <div>
                                     <h4>Experience</h4>
-                                    <p>1+ Years in Web Development, App Development</p>
+                                    <p>Internships: Nobel, Excerelate, CodeIT AppsWare</p>
                                 </div>
                             </div>
                         </div>
@@ -202,24 +242,24 @@
                             <h3>Backend Development</h3>
                             <div class="skill-items">
                                 <div class="skill-item">
-                                    <i class="fab fa-node-js"></i>
-                                    <span>Laravel</span>
+                                    <i class="fas fa-code"></i>
+                                    <span>Laravel & PHP</span>
                                     <div class="skill-bar">
                                         <div class="skill-fill" style="width: 85%"></div>
                                     </div>
                                 </div>
                                 <div class="skill-item">
-                                    <i class="fab fa-python"></i>
-                                    <span>Java</span>
+                                    <i class="fas fa-plug"></i>
+                                    <span>RESTful API Development</span>
                                     <div class="skill-bar">
-                                        <div class="skill-fill" style="width: 80%"></div>
+                                        <div class="skill-fill" style="width: 85%"></div>
                                     </div>
                                 </div>
                                 <div class="skill-item">
-                                    <i class="fas fa-server"></i>
-                                    <span>C#</span>
+                                    <i class="fab fa-java"></i>
+                                    <span>Java</span>
                                     <div class="skill-bar">
-                                        <div class="skill-fill" style="width: 80%"></div>
+                                        <div class="skill-fill" style="width: 75%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -229,7 +269,7 @@
                             <div class="skill-items">
                                 <div class="skill-item">
                                     <i class="fas fa-database"></i>
-                                    <span>Firebase</span>
+                                    <span>JDBC</span>
                                     <div class="skill-bar">
                                         <div class="skill-fill" style="width: 75%"></div>
                                     </div>
@@ -251,7 +291,7 @@
                             </div>
                         </div>
                         <div class="skill-category">
-                            <h3>DevOps & Tools</h3>
+                            <h3>Tools & Platforms</h3>
                             <div class="skill-items">
                                 <div class="skill-item">
                                     <i class="fab fa-git-alt"></i>
@@ -261,17 +301,17 @@
                                     </div>
                                 </div>
                                 <div class="skill-item">
-                                    <i class="fab fa-docker"></i>
-                                    <span>IntelliJ IDEA</span>
+                                    <i class="fas fa-laptop-code"></i>
+                                    <span>VS Code</span>
                                     <div class="skill-bar">
-                                        <div class="skill-fill" style="width: 70%"></div>
+                                        <div class="skill-fill" style="width: 95%"></div>
                                     </div>
                                 </div>
                                 <div class="skill-item">
                                     <i class="fas fa-code"></i>
-                                    <span>VS Code</span>
+                                    <span>IntelliJ & Eclipse</span>
                                     <div class="skill-bar">
-                                        <div class="skill-fill" style="width: 95%"></div>
+                                        <div class="skill-fill" style="width: 75%"></div>
                                     </div>
                                 </div>
                             </div>
@@ -326,6 +366,112 @@
                                         <div class="skill-fill" style="width: 65%"></div>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="skill-category">
+                            <h3>Data & AI</h3>
+                            <div class="skill-items">
+                                <div class="skill-item">
+                                    <i class="fab fa-python"></i>
+                                    <span>Python, Pandas, Matplotlib</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 80%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-brain"></i>
+                                    <span>TensorFlow & CNN</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 70%"></div>
+                                    </div>
+                                </div>
+                                <div class="skill-item">
+                                    <i class="fas fa-chart-line"></i>
+                                    <span>Excel & Looker Studio</span>
+                                    <div class="skill-bar">
+                                        <div class="skill-fill" style="width: 85%"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title">Experience</h2>
+                <div class="services-content">
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Intern, Nobel Internship Program</h3>
+                            <p>Apr 2025 – Sep 2025 • Internet troubleshooting, web design, presentations, leadership and teamwork in international projects.</p>
+                            <div class="service-features">
+                                <span>Troubleshooting</span>
+                                <span>Web Design</span>
+                                <span>Presentation</span>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h3>Data Analyst Intern, Excerelate</h3>
+                            <p>Jul 2025 – Sep 2025 • Built dashboards in Looker Studio, cleaned data in PostgreSQL, created visual reports and insights.</p>
+                            <div class="service-features">
+                                <span>Looker Studio</span>
+                                <span>PostgreSQL</span>
+                                <span>Reporting</span>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <h3>Laravel Full Stack Intern, CodeIT AppsWare</h3>
+                            <p>Aug 2025 – Present • Building and maintaining modern web apps, RESTful APIs, and collaborating for high-performance solutions.</p>
+                            <div class="service-features">
+                                <span>Laravel</span>
+                                <span>REST APIs</span>
+                                <span>Teamwork</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="services-content">
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <h3>Bachelors in Information Technology</h3>
+                            <p>Informatics College Pokhara • 2023 – Present</p>
+                            <div class="service-features">
+                                <span>Software Development</span>
+                                <span>Databases</span>
+                                <span>AI & ML</span>
+                            </div>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <h3>+2 Science</h3>
+                            <p>New Galaxy Secondary School • 2020 – 2022</p>
+                            <div class="service-features">
+                                <span>Mathematics</span>
+                                <span>Physics</span>
+                                <span>Computer Science</span>
                             </div>
                         </div>
                     </div>
@@ -421,152 +567,275 @@
             <div class="container">
                 <h2 class="section-title">Featured Projects</h2>
                 <div class="projects-content">
+                    <div class="project-filter" style="display:flex;gap:0.5rem;justify-content:center;margin-bottom:1.5rem;">
+                        <button class="hire-btn secondary" data-filter="all">All</button>
+                        <button class="hire-btn secondary" data-filter="web">Web</button>
+                        <button class="hire-btn secondary" data-filter="mobile">Mobile</button>
+                        <button class="hire-btn secondary" data-filter="ml">ML</button>
+                        <button class="hire-btn secondary" data-filter="data">Data</button>
+                    </div>
                     <div class="projects-grid">
-                        <div class="project-card">
+                        <div class="project-card" data-category="mobile">
                             <div class="project-image">
-                                <img src="images/Cleveroad.jpg" alt="Project 1">
+                                <img src="images/shoppingapp.jpg" alt="Shopping App" loading="lazy" width="800" height="250" decoding="async">
                                 <div class="project-overlay">
                                     <div class="project-links">
-                                        <a href="#" class="project-link">
+                                        <a href="#" class="project-link" aria-label="Demo">
                                             <i class="fas fa-external-link-alt"></i>
                                         </a>
-                                        <a href="#" class="project-link">
+                                        <a href="https://github.com/Prabesh-Marasini18/Shopping-App" target="_blank" class="project-link" aria-label="GitHub">
                                             <i class="fab fa-github"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="project-info">
-                                <h3>E-commerce Platform</h3>
-                                <p>A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, payment processing, and admin dashboard.</p>
+                                <h3>Shopping App</h3>
+                                <p>Cross-platform Flutter app with product browsing, cart management, and order placement.</p>
                                 <div class="project-tech">
-                                    <span>React</span>
-                                    <span>Node.js</span>
-                                    <span>MongoDB</span>
-                                    <span>Stripe</span>
+                                    <span>Flutter</span>
+                                    <span>Dart</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="project-card">
+                        <div class="project-card" data-category="mobile">
                             <div class="project-image">
-                                <img src="images/Task manager app.jpg" alt="Project 2">
+                                <img src="images/todolist.jpg" alt="To-Do List App" loading="lazy" width="800" height="250" decoding="async">
                                 <div class="project-overlay">
                                     <div class="project-links">
-                                        <a href="#" class="project-link">
+                                        <a href="#" class="project-link" aria-label="Demo">
                                             <i class="fas fa-external-link-alt"></i>
                                         </a>
-                                        <a href="#" class="project-link">
+                                        <a href="https://github.com/Prabesh-Marasini18/TODO-App" target="_blank" class="project-link" aria-label="GitHub">
                                             <i class="fab fa-github"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="project-info">
-                                <h3>Task Management App</h3>
-                                <p>A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.</p>
+                                <h3>To-Do List App</h3>
+                                <p>Flutter app with task creation, editing, and status tracking using efficient state management.</p>
                                 <div class="project-tech">
-                                    <span>Vue.js</span>
-                                    <span>Firebase</span>
-                                    <span>Tailwind CSS</span>
+                                    <span>Flutter</span>
+                                    <span>Dart</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="project-card">
+                        <div class="project-card" data-category="web">
                             <div class="project-image">
-                                <img src="images/Weather Forecast Dashboard.jpg" alt="Project 3">
+                                <img src="images/news.png" alt="DainikNews" loading="lazy" width="800" height="250" decoding="async">
                                 <div class="project-overlay">
                                     <div class="project-links">
-                                        <a href="#" class="project-link">
+                                        <a href="#" class="project-link" aria-label="Demo">
                                             <i class="fas fa-external-link-alt"></i>
                                         </a>
-                                        <a href="#" class="project-link">
+                                        <a href="https://github.com/Prabesh-Marasini18/DainikNews" target="_blank" class="project-link" aria-label="GitHub">
                                             <i class="fab fa-github"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="project-info">
-                                <h3>Weather Dashboard</h3>
-                                <p>An interactive weather dashboard with location-based forecasts, weather maps, and historical data visualization.</p>
+                                <h3>DainikNews – News Portal</h3>
+                                <p>Laravel-based news portal with CRUD for articles, categories, users, and an admin panel.</p>
                                 <div class="project-tech">
+                                    <span>Laravel</span>
+                                    <span>PHP</span>
+                                    <span>MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card" data-category="ml">
+                            <div class="project-image">
+                                <img src="images/radiograpgy.png" alt="Radiography Classifier" loading="lazy" width="800" height="250" decoding="async">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="https://aisquad-4.vercel.app/" target="_blank" class="project-link" aria-label="Demo">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                        <a href="#" class="project-link" aria-label="GitHub">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Radiography Image Classifier</h3>
+                                <p>CNN-based system using TensorFlow to detect and classify radiography images for reliable diagnosis.</p>
+                                <div class="project-tech">
+                                    <span>TensorFlow</span>
+                                    <span>CNN</span>
+                                    <span>Python</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card" data-category="web">
+                            <div class="project-image">
+                                <img src="images/grab.jpg" alt="Grab and Go" loading="lazy" width="800" height="250" decoding="async">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="#" class="project-link" aria-label="Demo">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                        <a href="https://github.com/Prabesh-Marasini18/grab-and-go" target="_blank" class="project-link" aria-label="GitHub">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Grab and Go – Food Ordering</h3>
+                                <p>JSP-based online ordering system with Servlets, JDBC, and admin panel for menus and orders.</p>
+                                <div class="project-tech">
+                                    <span>JSP</span>
+                                    <span>Servlets</span>
+                                    <span>JDBC</span>
+                                    <span>MySQL</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card" data-category="ml">
+                            <div class="project-image">
+                                <img src="images/drought.png" alt="Drought Prediction" loading="lazy" width="800" height="250" decoding="async">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="#" class="project-link" aria-label="Demo">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                        <a href="https://github.com/Prabesh-Marasini18" target="_blank" class="project-link" aria-label="GitHub">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Drought Prediction System</h3>
+                                <p>ML-based system to analyze environmental data and forecast drought conditions for early warnings.</p>
+                                <div class="project-tech">
+                                    <span>Python</span>
+                                    <span>ML</span>
+                                    <span>Data Analysis</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-card" data-category="web">
+                            <div class="project-image">
+                                <img src="images/promptly.png" alt="Promptly" loading="lazy" width="800" height="250" decoding="async">
+                                <div class="project-overlay">
+                                    <div class="project-links">
+                                        <a href="#" class="project-link" aria-label="Demo">
+                                            <i class="fas fa-external-link-alt"></i>
+                                        </a>
+                                        <a href="https://github.com/Prabesh-Marasini18/Promptly" target="_blank" class="project-link" aria-label="GitHub">
+                                            <i class="fab fa-github"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Promptly – AI Caption Generator</h3>
+                                <p>Web app integrating Google Gemini AI to generate creative captions with emojis and hashtags.</p>
+                                <div class="project-tech">
+                                    <span>Gemini API</span>
                                     <span>JavaScript</span>
-                                    <span>Chart.js</span>
-                                    <span>OpenWeather API</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="project-card">
+                        <div class="project-card" data-category="web">
                             <div class="project-image">
-                                <img src="images/pf.png" alt="Project 4">
+                                <img src="images/printer.png" alt="Printer Palace" loading="lazy" width="800" height="250" decoding="async">
                                 <div class="project-overlay">
                                     <div class="project-links">
-                                        <a href="#" class="project-link">
+                                        <a href="#" class="project-link" aria-label="Demo">
                                             <i class="fas fa-external-link-alt"></i>
                                         </a>
-                                        <a href="#" class="project-link">
-                                            <i class="fas fa-external-link-alt"></i>
+                                        <a href="https://github.com/Prabesh-Marasini18/Printer-Palace" target="_blank" class="project-link" aria-label="GitHub">
+                                            <i class="fab fa-github"></i>
                                         </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="project-info">
-                                <h3>Portfolio Website</h3>
-                                <p>A modern, responsive portfolio website showcasing creative work with smooth animations and interactive elements.</p>
+                                <h3>Printer Palace – E-commerce</h3>
+                                <p>Responsive website for printers and accessories with detailed product listings and interactive UI.</p>
                                 <div class="project-tech">
-                                    <span>HTML5</span>
-                                    <span>CSS3</span>
+                                    <span>HTML</span>
+                                    <span>CSS</span>
                                     <span>JavaScript</span>
-                                    <span>GSAP</span>
                                 </div>
                             </div>
                         </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="images/WordPress dashboard design concept.jpg" alt="Project 5">
-                                <div class="project-overlay">
-                                    <div class="project-links">
-                                        <a href="#" class="project-link">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </a>
-                                        <a href="#" class="project-link">
-                                            <i class="fab fa-github"></i>
-                                        </a>
-                                    </div>
-                                </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="certifications" class="section">
+            <div class="container">
+                <h2 class="section-title">Certifications & Achievements</h2>
+                <div class="services-content">
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fab fa-google"></i>
                             </div>
-                            <div class="project-info">
-                                <h3>Blog Platform</h3>
-                                <p>A full-featured blog platform with CMS capabilities, user management, and SEO optimization features.</p>
-                                <div class="project-tech">
-                                    <span>Next.js</span>
-                                    <span>Prisma</span>
-                                    <span>PostgreSQL</span>
-                                </div>
-                            </div>
+                            <h3>Introduction to Flutter</h3>
+                            <p>Simplilearn SkillUp • Fundamentals of Flutter, Dart, and cross-platform UI components.</p>
                         </div>
-                        <div class="project-card">
-                            <div class="project-image">
-                                <img src="images/Dashboard - Social Media Analytics.jpg" alt="Project 6">
-                                <div class="project-overlay">
-                                    <div class="project-links">
-                                        <a href="#" class="project-link">
-                                            <i class="fas fa-external-link-alt"></i>
-                                        </a>
-                                        <a href="#" class="project-link">
-                                            <i class="fab fa-github"></i>
-                                        </a>
-                                    </div>
-                                </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fab fa-php"></i>
                             </div>
-                            <div class="project-info">
-                                <h3>Social Media Dashboard</h3>
-                                <p>A comprehensive social media management dashboard with analytics, scheduling, and multi-platform integration.</p>
-                                <div class="project-tech">
-                                    <span>React</span>
-                                    <span>D3.js</span>
-                                    <span>Express.js</span>
-                                </div>
+                            <h3>PHP and MySQL</h3>
+                            <p>Codynn • Building dynamic web applications, back-end logic, and robust data handling.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-robot"></i>
                             </div>
+                            <h3>Understanding Machine Learning</h3>
+                            <p>DataCamp • Core ML concepts, model workflows, and evaluation techniques.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Deploying & Evaluating GenAI Apps</h3>
+                            <p>MongoDB Badge Path • Deployment best practices and performance evaluation for generative AI apps.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Personality, Social Media & Computer Training</h3>
+                            <p>Pokhara Metropolitan City • 2-week certified program in communication and digital skills.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-gamepad"></i>
+                            </div>
+                            <h3>Game Development Special Session</h3>
+                            <p>Yarsa Academy • Hands-on training in game design principles and practices.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="services-content" style="margin-top:2rem;">
+                    <h2 class="section-title" style="font-size:2rem;">Achievements</h2>
+                    <div class="services-grid">
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-bolt"></i>
+                            </div>
+                            <h3>Hackathons</h3>
+                            <p>Participated in Bolt.new Hackathon, Adobe Express Add-on Hackathon, and AI x City Climate Action Hackathon — collaborating under tight deadlines to deliver functional prototypes.</p>
+                        </div>
+                        <div class="service-card">
+                            <div class="service-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <h3>Languages</h3>
+                            <p>Nepali (Native), English (Fluent), Hindi (Conversational)</p>
                         </div>
                     </div>
                 </div>
@@ -606,7 +875,7 @@
                             <div class="contact-details">
                                 <h3>Location</h3>
                                 <p>Pokhara, Nepal</p>
-                                <a href="#" target="_blank">View on Map</a>
+                                <a href="https://www.google.com/maps/search/?api=1&query=Pokhara%2C+Nepal" target="_blank">View on Map</a>
                             </div>
                         </div>
                         <div class="contact-item">
@@ -616,39 +885,54 @@
                             <div class="contact-details">
                                 <h3>WhatsApp</h3>
                                 <p>+977 9846059853</p>
-                                <a href="#" target="_blank">Send Message</a>
+                                <a href="https://wa.me/9779846059853?text=Hello%20Prabesh%2C%20I%27d%20like%20to%20connect." target="_blank">Send Message</a>
                             </div>
                         </div>
                     </div>
                     <div class="contact-form">
-                        <form id="contactForm">
+                        <form id="contactForm" action="https://formspree.io/f/xblwdjpk" method="POST" novalidate>
+                            <h3 style="margin-bottom:1rem; text-align:center;">Contact Me</h3>
                             <div class="form-group">
-                                <input type="text" id="name" name="name" required>
+                                <input type="text" id="name" name="name" required placeholder=" " />
                                 <label for="name">Your Name</label>
                             </div>
                             <div class="form-group">
-                                <input type="email" id="email" name="email" required>
+                                <input type="email" id="email" name="email" required placeholder=" " />
                                 <label for="email">Your Email</label>
                             </div>
                             <div class="form-group">
-                                <input type="text" id="subject" name="subject" required>
-                                <label for="subject">Your Subject</label>
+                                <input type="text" id="subject" name="subject" placeholder=" " />
+                                <label for="subject">Subject (optional)</label>
                             </div>
                             <div class="form-group">
-                                <textarea id="message" name="message" rows="5" required></textarea>
+                                <textarea id="message" name="message" rows="5" required placeholder=" "></textarea>
                                 <label for="message">Your Message</label>
                             </div>
                             <button type="submit" class="submit-btn">
                                 <span>Send Message</span>
                                 <i class="fas fa-paper-plane"></i>
                             </button>
+                            <input type="hidden" name="_redirect" value="/" />
                         </form>
                     </div>
-                </div>
-            </div>
-        </section>
-    </main>
 
-    <script src="script.js"></script>
-</body>
-</html>
+
+                    </section>
+                </main>
+                <footer class="footer">
+                    <div class="container">
+                        <div class="footer-content">
+                            <div class="footer-copy">© 2025 Prabesh Marasini. All rights reserved.</div>
+                            <div class="footer-social">
+                                <a href="https://www.linkedin.com/in/prabesh-marasini-bb812b271/" aria-label="LinkedIn" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/Prabesh-Marasini18" aria-label="GitHub" class="social-icon github"><i class="fab fa-github"></i></a>
+                                <a href="https://www.instagram.com/marasini.prabesh/" aria-label="Instagram" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+
+
+                <script src="script.js"></script>
+            </body>
+            </html>
